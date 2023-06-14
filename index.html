@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="portfolioApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-controller="portfolioController">
+  <header>
+    <h1>{{ portfolio.name }}</h1>
+    <nav>
+      <ul>
+        <li ng-repeat="item in portfolio.menu">
+          <a href="{{ item.url }}">{{ item.label }}</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>About Me</h2>
+      <p>{{ portfolio.about }}</p>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <ul>
+        <li ng-repeat="project in portfolio.projects">
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.description }}</p>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Email: {{ portfolio.contact.email }}</p>
+      <p>Phone: {{ portfolio.contact.phone }}</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; {{ portfolio.name }} {{ currentYear }}</p>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
